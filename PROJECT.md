@@ -33,3 +33,4 @@
 
 ## Updates
 - 2026-06-20: Initial Build
+- 2026-08-28: Atelier-Service-Felder (Goldschmied · Reparaturen · Sonderanfertigung) als abgedunkelte Bild-Karten umgebaut — je ein Higgsfield-Hintergrundbild (nano-banana 16:9), Gradient-Overlay für Textlesbarkeit, Hover hellt das Bild auf + Ken-Burns-Zoom + Gold-Rahmen. Neue Assets: service-goldschmied/-reparaturen/-sonder.webp
