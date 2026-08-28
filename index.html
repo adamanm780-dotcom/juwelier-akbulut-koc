@@ -181,11 +181,20 @@ img{display:block;max-width:100%}
 .atelier__img::after{content:"";position:absolute;inset:16px;border:1px solid rgba(200,162,78,.3);pointer-events:none}
 .atelier h2{font-size:clamp(30px,4vw,50px);margin:22px 0 26px}
 .atelier p{font-size:16px;margin-bottom:24px}
-.service-list{list-style:none;margin:30px 0 36px;border-top:1px solid var(--line)}
-.service-list li{padding:20px 0;border-bottom:1px solid var(--line);display:flex;gap:18px;align-items:baseline}
-.service-list .s-num{font-family:'Italiana',serif;color:var(--accent);font-size:15px;min-width:34px}
-.service-list .s-txt h4{font-size:20px;margin-bottom:4px}
-.service-list .s-txt p{font-size:13.5px;margin:0}
+.service-list{list-style:none;margin:30px 0 36px;display:flex;flex-direction:column;gap:16px}
+.service-list li{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:2px;min-height:160px;display:flex;gap:18px;align-items:flex-end;padding:24px 26px;isolation:isolate}
+.service-list li .s-bg{position:absolute;inset:0;z-index:0}
+.service-list li .s-bg img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.service-list li::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,11,13,.5) 0%,rgba(10,11,13,.74) 55%,rgba(10,11,13,.9) 100%);opacity:1;transition:opacity .55s ease}
+.service-list li::after{content:"";position:absolute;inset:12px;border:1px solid rgba(200,162,78,.22);z-index:2;pointer-events:none;transition:border-color .55s ease}
+.service-list li:hover::before{opacity:.42}
+.service-list li:hover::after{border-color:rgba(200,162,78,.5)}
+.service-list li:hover .s-bg img{transform:scale(1.06)}
+.service-list .s-num{position:relative;z-index:3;font-family:'Italiana',serif;color:var(--accent-light);font-size:15px;min-width:34px}
+.service-list .s-txt{position:relative;z-index:3}
+.service-list .s-txt h4{font-size:22px;margin-bottom:5px;color:var(--ivory)}
+.service-list .s-txt p{font-size:13.5px;margin:0;color:var(--cream);max-width:46ch;text-shadow:0 1px 12px rgba(0,0,0,.4)}
+@media (prefers-reduced-motion:reduce){.service-list li .s-bg img{transition:none}}
 
 /* ===== GOLDANKAUF (parallax) ===== */
 .goldankauf{position:relative;text-align:center;background:linear-gradient(rgba(10,11,13,.82),rgba(10,11,13,.9)),url("assets/texture.webp");background-size:cover;background-position:center;background-attachment:fixed}
@@ -388,9 +397,18 @@ footer ul li a:hover{color:var(--accent)}
       <h2 class="serif">Eigene Goldschmiede-Werkstatt im Haus</h2>
       <p>Was bei uns verkauft wird, wird bei uns auch betreut. In der hauseigenen Werkstatt reparieren, ändern und fertigen wir — vom Engerstellen des Rings bis zum kompletten Einzelstück nach Ihren Vorstellungen.</p>
       <ul class="service-list">
-        <li><span class="s-num">I</span><div class="s-txt"><h4 class="serif">Goldschmied</h4><p>Meisterliches Handwerk für Neuanfertigung und Pflege Ihrer Lieblingsstücke.</p></div></li>
-        <li><span class="s-num">II</span><div class="s-txt"><h4 class="serif">Reparaturen</h4><p>Ringgrößen anpassen, Ketten löten, Steine fassen, Schmuck aufarbeiten.</p></div></li>
-        <li><span class="s-num">III</span><div class="s-txt"><h4 class="serif">Sonderanfertigung</h4><p>Ihr individuelles Schmuckstück — gemeinsam entworfen, von Hand gefertigt.</p></div></li>
+        <li>
+          <div class="s-bg"><img src="assets/service-goldschmied.webp" alt="Goldschmied bei der Handarbeit an einem Goldring in der Werkstatt" loading="lazy" /></div>
+          <span class="s-num">I</span><div class="s-txt"><h4 class="serif">Goldschmied</h4><p>Meisterliches Handwerk für Neuanfertigung und Pflege Ihrer Lieblingsstücke.</p></div>
+        </li>
+        <li>
+          <div class="s-bg"><img src="assets/service-reparaturen.webp" alt="Goldring auf dem Ringstock — Reparatur und Größenanpassung" loading="lazy" /></div>
+          <span class="s-num">II</span><div class="s-txt"><h4 class="serif">Reparaturen</h4><p>Ringgrößen anpassen, Ketten löten, Steine fassen, Schmuck aufarbeiten.</p></div>
+        </li>
+        <li>
+          <div class="s-bg"><img src="assets/service-sonder.webp" alt="Handgezeichneter Ring-Entwurf mit Wachsmodell und losen Diamanten" loading="lazy" /></div>
+          <span class="s-num">III</span><div class="s-txt"><h4 class="serif">Sonderanfertigung</h4><p>Ihr individuelles Schmuckstück — gemeinsam entworfen, von Hand gefertigt.</p></div>
+        </li>
       </ul>
       <a href="#kontakt" class="text-cta">Beratungstermin anfragen <span class="arrow">→</span></a>
     </div>
